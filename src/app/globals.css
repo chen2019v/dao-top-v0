@@ -1,26 +1,149 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ===== DAO.top Design System — Song Aesthetics × Zen Luxury ===== */
+@theme {
+  /* 主色系 */
+  --color-ink: #1A1A1A;
+  --color-rice: #F5F3EF;
+  --color-rice-paper: #F5F3EF;
+
+  /* 四道分色 */
+  --color-incense: #8FA398;
+  --color-ornament: #7A5C48;
+  --color-tea: #5E7265;
+  --color-vessel: #94928E;
+
+  /* 扩展色 */
+  --color-celadon: #7ba7a0;
+  --color-vermilion: #b54434;
+  --color-light-ink: #a8a8a8;
+
+  /* 字体 */
+  --font-serif: "Playfair Display", "Noto Serif SC", serif;
+  --font-sans: "Inter", "Noto Sans SC", system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* ===== Base ===== */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-rice);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Typography ===== */
+h1, h2, h3, .font-heading {
+  font-family: var(--font-serif);
+}
+
+/* ===== Utility Classes ===== */
+
+/* Rice paper texture */
+.bg-rice-paper {
+  background-color: var(--color-rice);
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(210,200,185,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(200,190,175,0.05) 0%, transparent 50%);
+}
+
+/* Thin divider — Song aesthetic */
+.divider-thin {
+  width: 2rem;
+  height: 1px;
+  background: var(--color-ink);
+  opacity: 0.15;
+  margin: 1.5rem auto;
+}
+
+.divider-wide {
+  width: 4rem;
+  height: 1px;
+  background: var(--color-ink);
+  opacity: 0.1;
+  margin: 2rem auto;
+}
+
+/* Poetry text layout */
+.poetry {
+  line-height: 1.9;
+  letter-spacing: 0.04em;
+}
+
+/* Ink wash gradient */
+.ink-wash {
+  background: linear-gradient(to bottom, transparent 0%, var(--color-rice) 100%);
+}
+
+/* Seal stamp style button */
+.seal-btn {
+  display: inline-block;
+  padding: 0.75em 1.8em;
+  border: 1.5px solid var(--color-ink);
+  font-size: 0.75rem;
+  font-family: var(--font-sans);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-ink);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.seal-btn:hover {
+  background: var(--color-ink);
+  color: var(--color-rice);
+}
+
+/* CTA Button — main shop link */
+.shop-cta {
+  display: inline-block;
+  padding: 0.9em 2.4em;
+  background: var(--color-ink);
+  color: var(--color-rice);
+  font-size: 0.7rem;
+  font-family: var(--font-sans);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+.shop-cta:hover {
+  background: #333;
+  transform: translateY(-1px);
+}
+
+/* Fade in animation */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+/* Gentle bounce for scroll indicator */
+@keyframes gentle-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+.animate-bounce {
+  animation: gentle-bounce 2s ease-in-out infinite;
+}
+
+/* Card hover */
+.card-hover {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+}
+
+/* Image zoom on hover */
+.img-zoom {
+  overflow: hidden;
+}
+.img-zoom img {
+  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.img-zoom:hover img {
+  transform: scale(1.04);
 }
