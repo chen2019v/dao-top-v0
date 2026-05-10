@@ -3,6 +3,8 @@ export interface Dao {
   slug: string;
   /** English name */
   name: string;
+  /** Chinese name (e.g. 香道) */
+  nameZh: string;
   /** Tagline — short poetic English */
   tagline: string;
   /** Full English description for culture page */
@@ -25,6 +27,7 @@ export const daos: Dao[] = [
   {
     slug: "incense",
     name: "Incense Dao",
+    nameZh: "香道",
     tagline: "Where smoke meets stillness",
     description:
       "For over four millennia, the art of incense has been woven into the fabric of Eastern contemplation. From Buddhist temples to scholar's studies, the ritual of burning incense is a practice of mindfulness — a bridge between the material world and the infinite.",
@@ -40,6 +43,7 @@ export const daos: Dao[] = [
   {
     slug: "ornament",
     name: "Ornament Dao",
+    nameZh: "饰道",
     tagline: "Wearable wisdom, carried close",
     description:
       "In Eastern tradition, ornaments are never mere decoration — they are talismans of intention, carriers of blessing, and expressions of inner philosophy. Each piece tells a story of heritage, craftsmanship, and the eternal human desire to carry beauty with us.",
@@ -55,6 +59,7 @@ export const daos: Dao[] = [
   {
     slug: "tea",
     name: "Tea Dao",
+    nameZh: "茶道",
     tagline: "One cup, a thousand reflections",
     description:
       "Tea is the world's most ancient beverage, and in the East, it is far more than a drink — it is a philosophy of presence, a ritual of hospitality, and an art form that has shaped civilizations for over 4,000 years.",
@@ -70,6 +75,7 @@ export const daos: Dao[] = [
   {
     slug: "vessel",
     name: "Vessel Dao",
+    nameZh: "器道",
     tagline: "Form follows a thousand years of feeling",
     description:
       "The vessel is the silent partner of every Dao — the bowl that holds the tea, the burner that cradles the incense, the vase that presents the flower. In Eastern philosophy, the usefulness of a vessel lies not in its walls, but in its emptiness.",

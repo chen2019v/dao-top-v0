@@ -1,149 +1,374 @@
 @import "tailwindcss";
 
-/* ===== DAO.top Design System — Song Aesthetics × Zen Luxury ===== */
+/* ============================================================
+   DAO.top V2 — 宋式美学设计系统
+   水墨为魂，留白为韵，印章为骨
+   ============================================================ */
+
+/* ----- Custom Theme Tokens (Tailwind v4 @theme) ----- */
 @theme {
-  /* 主色系 */
-  --color-ink: #1A1A1A;
-  --color-rice: #F5F3EF;
-  --color-rice-paper: #F5F3EF;
+  /* 墨色体系 */
+  --color-ink:          #1a1a1a;
+  --color-ink-soft:     #3d3d3d;
+  --color-ink-faint:    #8a8678;
+  --color-ink-wash:     #c8c2b4;
+
+  /* 宣纸体系 */
+  --color-rice:         #f5f3ef;
+  --color-rice-warm:    #ede8dd;
+  --color-rice-deep:    #e8e2d4;
+
+  /* 宋式 accent */
+  --color-celadon:     #7ba7a0;
+  --color-celadon-muted:#5f8e88;
+  --color-vermilion:    #b54434;
+  --color-gold:         #c9a96e;
+  --color-gold-soft:    #d4b87a;
 
   /* 四道分色 */
-  --color-incense: #8FA398;
-  --color-ornament: #7A5C48;
-  --color-tea: #5E7265;
-  --color-vessel: #94928E;
-
-  /* 扩展色 */
-  --color-celadon: #7ba7a0;
-  --color-vermilion: #b54434;
-  --color-light-ink: #a8a8a8;
+  --color-dao-incense: #8fa398;
+  --color-dao-ornament: #7a5c48;
+  --color-dao-tea:     #5e7265;
+  --color-dao-vessel:  #94928e;
 
   /* 字体 */
-  --font-serif: "Playfair Display", "Noto Serif SC", serif;
+  --font-serif: "Playfair Display", "Noto Serif SC", Georgia, serif;
   --font-sans: "Inter", "Noto Sans SC", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
-/* ===== Base ===== */
-body {
-  background-color: var(--color-rice);
-  color: var(--color-ink);
-  font-family: var(--font-sans);
+/* ============================================================
+   Base Reset & Foundation
+   ============================================================ */
+html {
+  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ===== Typography ===== */
-h1, h2, h3, .font-heading {
-  font-family: var(--font-serif);
-}
-
-/* ===== Utility Classes ===== */
-
-/* Rice paper texture */
-.bg-rice-paper {
+body {
   background-color: var(--color-rice);
-  background-image:
-    radial-gradient(ellipse at 20% 50%, rgba(210,200,185,0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(200,190,175,0.05) 0%, transparent 50%);
-}
-
-/* Thin divider — Song aesthetic */
-.divider-thin {
-  width: 2rem;
-  height: 1px;
-  background: var(--color-ink);
-  opacity: 0.15;
-  margin: 1.5rem auto;
-}
-
-.divider-wide {
-  width: 4rem;
-  height: 1px;
-  background: var(--color-ink);
-  opacity: 0.1;
-  margin: 2rem auto;
-}
-
-/* Poetry text layout */
-.poetry {
-  line-height: 1.9;
-  letter-spacing: 0.04em;
-}
-
-/* Ink wash gradient */
-.ink-wash {
-  background: linear-gradient(to bottom, transparent 0%, var(--color-rice) 100%);
-}
-
-/* Seal stamp style button */
-.seal-btn {
-  display: inline-block;
-  padding: 0.75em 1.8em;
-  border: 1.5px solid var(--color-ink);
-  font-size: 0.75rem;
-  font-family: var(--font-sans);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  text-decoration: none;
   color: var(--color-ink);
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.seal-btn:hover {
-  background: var(--color-ink);
-  color: var(--color-rice);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-/* CTA Button — main shop link */
-.shop-cta {
-  display: inline-block;
-  padding: 0.9em 2.4em;
+/* ============================================================
+   Typography — Song Aesthetic
+   ============================================================ */
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+
+/* ============================================================
+   Ink Wash Texture — SVG Noise (subtle, cinematic)
+   ============================================================ */
+.bg-ink-wash {
+  background:
+    /* 宣纸底纹 */
+    radial-gradient(ellipse at 20% 0%, rgba(200,190,170,0.25) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 100%, rgba(190,180,165,0.18) 0%, transparent 55%),
+    /* 水墨晕染 */
+    radial-gradient(ellipse at 50% 50%, rgba(210,200,185,0.12) 0%, transparent 70%);
+  background-color: var(--color-rice);
+}
+
+/* 水墨渐变遮罩 — 用于图片与文字叠加 */
+.ink-wash-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(245,243,239,1) 0%,
+    rgba(245,243,239,0.85) 30%,
+    rgba(245,243,239,0.3) 60%,
+    transparent 100%
+  );
+}
+
+/* ============================================================
+   Seal Stamp —— 宋式印章装饰
+   ============================================================ */
+.seal-stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--color-vermilion);
+  color: var(--color-vermilion);
+  font-family: var(--font-serif);
+  font-size: 14px;
+  line-height: 1;
+  transform: rotate(-3deg);
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.seal-stamp-lg {
+  width: 72px;
+  height: 72px;
+  font-size: 18px;
+  border-width: 2.5px;
+}
+
+/* ============================================================
+   Divider —— 宋式细线分隔
+   ============================================================ */
+.divider-ink {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-ink-faint),
+    transparent
+  );
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.divider-ink-left {
+  width: 48px;
+  height: 1px;
+  background: var(--color-ink-faint);
+  opacity: 0.35;
+}
+
+.divider-long {
+  width: 96px;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    var(--color-ink-faint),
+    transparent
+  );
+  opacity: 0.3;
+}
+
+/* ============================================================
+   Buttons —— 宋式极简按钮
+   ============================================================ */
+
+/* Primary: 墨底白字 */
+.btn-ink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 36px;
   background: var(--color-ink);
   color: var(--color-rice);
-  font-size: 0.7rem;
   font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-ink:hover {
+  background: var(--color-ink-soft);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(26,26,26,0.15);
+}
+
+/* Secondary: 描边 */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 34px;
+  background: transparent;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1.5px solid var(--color-ink);
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-outline:hover {
+  background: var(--color-ink);
+  color: var(--color-rice);
+}
+
+/* Ghost: 纯文字链接 */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
   transition: all 0.4s ease;
 }
-.shop-cta:hover {
-  background: #333;
-  transform: translateY(-1px);
+.btn-ghost:hover {
+  color: var(--color-ink);
+  border-bottom-color: var(--color-ink);
 }
 
-/* Fade in animation */
-@keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+/* ============================================================
+   Animations —— 宋式「气」的流动
+   ============================================================ */
+
+/* 淡入上移 */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
+
+/* 淡入 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* 水墨展开 */
+@keyframes inkSpread {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+
+/* 缓慢脉冲 — 用于装饰元素 */
+@keyframes pulseSlow {
+  0%, 100% { opacity: 0.15; }
+  50%      { opacity: 0.3; }
+}
+
 .animate-fade-in-up {
-  animation: fade-in-up 0.8s ease-out forwards;
+  animation: fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
 }
 
-/* Gentle bounce for scroll indicator */
-@keyframes gentle-bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(6px); }
-}
-.animate-bounce {
-  animation: gentle-bounce 2s ease-in-out infinite;
+.animate-fade-in {
+  animation: fadeIn 1.2s ease forwards;
+  opacity: 0;
 }
 
-/* Card hover */
-.card-hover {
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.card-hover:hover {
-  transform: translateY(-4px);
+.animate-ink-spread {
+  animation: inkSpread 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Image zoom on hover */
-.img-zoom {
+/* 滚动触发动画 — 用 Intersection Observer 驱动 (JS side) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   Card Hover Effects
+   ============================================================ */
+.card-dao {
+  position: relative;
   overflow: hidden;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.6s ease;
 }
-.img-zoom img {
-  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+.card-dao:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(26,26,26,0.08);
 }
-.img-zoom:hover img {
-  transform: scale(1.04);
+
+.card-dao .card-img {
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-dao:hover .card-img {
+  transform: scale(1.05);
+}
+
+/* ============================================================
+   Section Spacing — 宋式留白
+   ============================================================ */
+.section-padding {
+  padding-top: clamp(72px, 12vh, 120px);
+  padding-bottom: clamp(72px, 12vh, 120px);
+}
+
+/* ============================================================
+   Poetic Text —— 诗句排版
+   ============================================================ */
+.poetry {
+  font-family: var(--font-serif);
+  line-height: 2;
+  letter-spacing: 0.06em;
+  color: var(--color-ink-faint);
+}
+
+/* ============================================================
+   Scrollbar —— 极简
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-rice);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-ink-wash);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ink-faint);
+}
+
+/* ============================================================
+   Selection —— 宋式选词色彩
+   ============================================================ */
+::selection {
+  background: rgba(123,167,160,0.2);
+  color: var(--color-ink);
+}
+
+/* ============================================================
+   Image Aspect Ratio Helpers
+   ============================================================ */
+.aspect-portrait {
+  aspect-ratio: 3 / 4;
+}
+.aspect-landscape {
+  aspect-ratio: 16 / 9;
+}
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+/* ============================================================
+   Ink Wash Background — SVG Filter (true ink texture)
+   ============================================================ */
+.bg-ink-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+  pointer-events: none;
+}
+
+/* ============================================================
+   Responsive Adjustments
+   ============================================================ */
+@media (max-width: 768px) {
+  .seal-stamp-lg {
+    width: 56px;
+    height: 56px;
+    font-size: 14px;
+  }
 }
