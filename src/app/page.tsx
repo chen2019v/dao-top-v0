@@ -10,75 +10,134 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col">
-      {/* ===== HERO — 水墨气场 ===== */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-ink text-rice">
-        {/* 水墨底图 — 全屏覆盖 */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1920&q=80"
-            alt=""
-            aria-hidden="true"
-            className="w-full h-full object-cover opacity-20"
-          />
-          {/* 多层水墨渐变遮罩 */}
-          <div className="absolute inset-0 bg-gradient-to-b from-ink/80 via-ink/60 to-ink/90" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(123,167,160,0.08),transparent_70%)]" />
-        </div>
+      {/* ===== HERO — 水墨气场（纯CSS，无外部图片依赖） ===== */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* 多层水墨渐变底色 — 完全不依赖外部图片 */}
+        <div className="absolute inset-0 z-0"
+          style={{
+            background:
+              "linear-gradient(160deg, #1a1a1a 0%, #2a2a28 25%, #1f1f1f 50%, #232320 75%, #1a1a1a 100%)",
+          }}
+        />
+        {/* 宣纸纹理叠加 — SVG noise，数据URI内嵌，零网络依赖 */}
+        <div
+          className="absolute inset-0 z-0 opacity-10"
+          style={{
+            backgroundImage:
+              'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E")',
+            backgroundSize: "256px 256px",
+          }}
+        />
+        {/* 天青色水墨晕染光晕 */}
+        <div
+          className="absolute inset-0 z-0 opacity-20"
+          style={{
+            background:
+            "radial-gradient(ellipse at 30% 40%, rgba(123,167,160,0.25) 0%, transparent 55%), radial-gradient(ellipse at 70% 60%, rgba(123,167,160,0.15) 0%, transparent 50%)",
+          }}
+        />
+        {/* 顶部微光 */}
+        <div
+          className="absolute top-0 left-0 w-full h-px z-10"
+          style={{ background: "linear-gradient(to right, transparent, rgba(123,167,160,0.4), transparent)" }}
+        />
+        {/* 底部微光 */}
+        <div
+          className="absolute bottom-0 left-0 w-full h-px z-10"
+          style={{ background: "linear-gradient(to right, transparent, rgba(123,167,160,0.3), transparent)" }}
+        />
 
-        {/* Hero 内容 */}
-        <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-4xl mx-auto">
-          {/* 印章装饰 */}
-          <div className="mb-8 opacity-60" style={{ animationDelay: "0.2s" }}>
-            <div className="w-16 h-16 border-2 border-celadon/50 flex items-center justify-center rotate-2">
-              <span className="font-serif text-celadon/70 text-xs tracking-wider">道</span>
+        {/* Hero 内容区 */}
+        <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-4xl mx-auto py-24">
+          {/* 印章 — 朱砂红，传统中国印色 */}
+          <div className="mb-10" style={{ animationDelay: "0.2s" }}>
+            <div
+              className="w-20 h-20 flex items-center justify-center"
+              style={{
+                border: "2.5px solid #b54434",
+                transform: "rotate(3deg)",
+                opacity: 0.85,
+              }}
+            >
+              <span
+                className="font-serif"
+                style={{
+                  color: "#b54434",
+                  fontSize: "20px",
+                  letterSpacing: "0.15em",
+                }}
+              >
+                道
+              </span>
             </div>
           </div>
 
           {/* Est. 标签 */}
           <p
-            className="text-[10px] tracking-[0.5em] uppercase text-celadon/60 mb-6 animate-fade-in-up"
-            style={{ animationDelay: "0.3s" }}
+            className="text-[11px] tracking-[0.5em] uppercase mb-8 animate-fade-in-up"
+            style={{ color: "rgba(123,167,160,0.6)", animationDelay: "0.3s" }}
           >
             Est. 2024 &middot; Song Dynasty Aesthetics
           </p>
 
-          {/* 主标题 — 大字 */}
+          {/* 主标题 DAO.top */}
           <h1
-            className="text-5xl md:text-7xl lg:text-8xl font-serif font-normal tracking-[0.06em] text-rice leading-[1.1] mb-6 animate-fade-in-up"
-            style={{ animationDelay: "0.5s" }}
+            className="font-serif font-normal tracking-[0.06em] leading-[1.1] mb-8 animate-fade-in-up"
+            style={{
+              color: "#f5f3ef",
+              fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
+              animationDelay: "0.5s",
+            }}
           >
             DAO
-            <span className="text-celadon/50">.</span>
-            <span className="text-celadon/40">top</span>
+            <span style={{ color: "rgba(123,167,160,0.5)" }}>.</span>
+            <span style={{ color: "rgba(123,167,160,0.4)" }}>top</span>
           </h1>
 
           {/* 英文副标题 */}
           <p
-            className="text-base md:text-lg font-serif italic text-celadon/70 tracking-[0.08em] mb-2 animate-fade-in-up"
-            style={{ animationDelay: "0.7s" }}
+            className="font-serif italic tracking-[0.08em] mb-3 animate-fade-in-up"
+            style={{
+              color: "rgba(123,167,160,0.65)",
+              fontSize: "clamp(0.9rem, 1.5vw, 1.15rem)",
+              animationDelay: "0.7s",
+            }}
           >
             The Eastern Way of Serene Living
           </p>
 
           {/* 中文副标题 */}
           <p
-            className="text-sm md:text-base text-rice/30 tracking-[0.15em] mb-12 animate-fade-in-up"
-            style={{ animationDelay: "0.9s" }}
+            className="tracking-[0.15em] mb-14 animate-fade-in-up"
+            style={{
+              color: "rgba(245,243,239,0.25)",
+              fontSize: "clamp(0.75rem, 1.2vw, 0.9rem)",
+              animationDelay: "0.9s",
+            }}
           >
             道法自然 · 静以修身
           </p>
 
           {/* 诗句引用 */}
           <div
-            className="mb-12 animate-fade-in-up"
+            className="mb-14 animate-fade-in-up"
             style={{ animationDelay: "1.1s" }}
           >
-            <div className="w-12 h-[0.5px] bg-celadon/30 mx-auto mb-5" />
-            <p className="text-sm md:text-base font-serif italic text-rice/40 leading-[2] tracking-[0.04em]">
+            <div
+              className="mx-auto mb-6"
+              style={{ width: "3rem", height: "1px", background: "rgba(123,167,160,0.25)" }}
+            />
+            <p
+              className="font-serif italic leading-[2] tracking-[0.04em]"
+              style={{ color: "rgba(245,243,239,0.3)", fontSize: "clamp(0.8rem, 1.2vw, 0.95rem)" }}
+            >
               "In the silence between breaths,<br />
               the beauty of a thousand years whispers."
             </p>
-            <div className="w-12 h-[0.5px] bg-celadon/30 mx-auto mt-5" />
+            <div
+              className="mx-auto mt-6"
+              style={{ width: "3rem", height: "1px", background: "rgba(123,167,160,0.25)" }}
+            />
           </div>
 
           {/* 双CTA */}
@@ -90,12 +149,24 @@ export default function HomePage() {
               href={SHOP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-ink"
-              style={{ background: "var(--color-rice)", color: "var(--color-ink)" }}
+              className="px-8 py-3 uppercase tracking-[0.2em] text-[11px] transition-all duration-500 hover:opacity-85"
+              style={{
+                background: "#f5f3ef",
+                color: "#1a1a1a",
+                fontFamily: "var(--font-sans), sans-serif",
+              }}
             >
               Visit Our Shop
             </a>
-            <Link href="/daos" className="btn-outline" style={{ borderColor: "rgba(245,243,239,0.3)", color: "var(--color-rice)" }}>
+            <Link
+              href="/daos"
+              className="px-8 py-3 uppercase tracking-[0.2em] text-[11px] transition-all duration-500 hover:bg-white/10"
+              style={{
+                border: "1.5px solid rgba(245,243,239,0.25)",
+                color: "#f5f3ef",
+                fontFamily: "var(--font-sans), sans-serif",
+              }}
+            >
               Explore The Daos
             </Link>
           </div>
@@ -105,10 +176,16 @@ export default function HomePage() {
             className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in-up"
             style={{ animationDelay: "1.6s" }}
           >
-            <span className="text-[9px] tracking-[0.4em] uppercase text-rice/20">
+            <span
+              className="tracking-[0.4em] uppercase"
+              style={{ color: "rgba(245,243,239,0.15)", fontSize: "9px" }}
+            >
               Discover
             </span>
-            <div className="w-[0.5px] h-10 bg-celadon/20 animate-[gentle-bounce_2.5s_ease-in-out_infinite]" />
+            <div
+              className="animate-[gentle-bounce_2.5s_ease-in-out_infinite]"
+              style={{ width: "1px", height: "2.5rem", background: "rgba(123,167,160,0.2)" }}
+            />
           </div>
         </div>
       </section>
