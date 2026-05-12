@@ -31,10 +31,10 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Est. 标签 */}
+          {/* 标签 */}
           <p className="text-[11px] tracking-[0.5em] uppercase mb-8 animate-fade-in-up animate-delay-2"
             style={{ color: "rgba(123,167,160,0.55)" }}>
-            Est. 2024 &middot; Song Dynasty Aesthetics
+            宋式美学 · DAO之道
           </p>
 
           {/* 主标题 DAO.top */}
@@ -70,10 +70,10 @@ export default function HomePage() {
           {/* 双CTA */}
           <div className="flex flex-col sm:flex-row items-center gap-4 animate-fade-in-up animate-delay-5">
             <a href={SHOP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
-              Visit Our Shop
+              进入店铺
             </a>
             <Link href="/daos" className="btn-outline-light">
-              Explore The Daos
+              探索诸道
             </Link>
           </div>
 
@@ -93,16 +93,16 @@ export default function HomePage() {
           <div className="flex justify-center mb-8">
             <div className="seal seal-sm">Dao</div>
           </div>
-          <p className="text-[10px] tracking-[0.4em] uppercase text-ink/30 mb-6">Philosophy</p>
+          <p className="text-[10px] tracking-[0.4em] uppercase text-ink/30 mb-6">哲思</p>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif tracking-[0.04em] text-ink mb-8 leading-[1.4]">
-            Beauty Lies in<br /><span className="text-ink/40">the Space Between</span>
+            美在留白之间<br /><span className="text-ink/40">the Space Between</span>
           </h2>
           <div className="divider-ink mb-8" />
           <p className="text-base md:text-lg font-serif italic text-ink/55 leading-[2] tracking-[0.03em] mb-6">
             &ldquo;The beauty of the East is not in abundance,&ldquo;<br />&ldquo;but in the restraint — the space where meaning breathes.&rdquo;
           </p>
           <p className="text-sm text-ink/40 leading-relaxed tracking-[0.01em] max-w-md mx-auto">
-            Inspired by Song Dynasty aesthetics — where a single brushstroke carries the weight of a thousand years. DAO.top curates pieces that bridge ancient wisdom and modern serenity.
+            源于宋代美学——一笔一画，承载千年。DAO.top 甄选连接古智与静谧之物。
           </p>
           <div className="divider-ink mt-8" />
           <div className="flex flex-wrap justify-center gap-8 mt-10">
@@ -124,12 +124,12 @@ export default function HomePage() {
       <section className="px-6 py-24 md:py-36 bg-ink/[0.012]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
-            <p className="text-[10px] tracking-[0.4em] uppercase text-ink/30 mb-4">The Collection</p>
-            <h2 className="text-3xl md:text-4xl font-serif tracking-[0.04em] text-ink mb-4">The Four Daos</h2>
-            <div className="divider-ink mb-6" />
-            <p className="text-sm text-ink/40 max-w-lg mx-auto leading-relaxed">
-              Four pillars of Eastern contemplation. Each Dao is a path — a way of being that transforms the ordinary into the extraordinary.
-            </p>
+            <p className="text-[10px] tracking-[0.4em] uppercase text-ink/30 mb-4">诸道</p>
+          <h2 className="text-3xl md:text-4xl font-serif tracking-[0.04em] text-ink mb-4">四道</h2>
+          <div className="divider-ink mb-6" />
+          <p className="text-sm text-ink/40 max-w-lg mx-auto leading-relaxed">
+            东方雅事四道，乃静心修为之径——每道皆是一扇门，引寻常之物入不凡之境。
+          </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {coreDaos.map((dao, i) => (
@@ -161,9 +161,9 @@ export default function HomePage() {
         <div className="absolute top-20 left-10 w-px h-40 bg-celadon/10" />
         <div className="absolute bottom-20 right-10 w-px h-40 bg-celadon/10" />
         <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <p className="text-[10px] tracking-[0.4em] uppercase text-celadon/50 mb-6">Craftsmanship</p>
+          <p className="text-[10px] tracking-[0.4em] uppercase text-celadon/50 mb-6">匠心</p>
           <h2 className="text-2xl md:text-4xl font-serif tracking-[0.04em] text-rice mb-8 leading-[1.5]">
-            Every Piece Tells<br />a Thousand-Year Story
+            千载匠心<br />一物一故事
           </h2>
           <div className="w-12 h-[0.5px] bg-celadon/30 mx-auto mb-8" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
@@ -190,8 +190,8 @@ export default function HomePage() {
       <section className="px-6 py-24 md:py-36 bg-rice-paper">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-[10px] tracking-[0.4em] uppercase text-ink/30 mb-4">Cultural Ambassadors</p>
-            <h2 className="text-3xl md:text-4xl font-serif tracking-[0.04em] text-ink mb-4">Meet Our Digital IPs</h2>
+            <p className="text-[10px] tracking-[0.4em] uppercase text-ink/30 mb-4">文化使者</p>
+            <h2 className="text-3xl md:text-4xl font-serif tracking-[0.04em] text-ink mb-4">遇见数字IP</h2>
             <div className="divider-ink mb-6" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -226,8 +226,8 @@ export default function HomePage() {
       <section className="px-6 py-24 md:py-36">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-[10px] tracking-[0.4em] uppercase text-ink/30 mb-4">From the Journal</p>
-            <h2 className="text-3xl md:text-4xl font-serif tracking-[0.04em] text-ink mb-4">Stories & Insights</h2>
+            <p className="text-[10px] tracking-[0.4em] uppercase text-ink/30 mb-4">雅集随笔</p>
+            <h2 className="text-3xl md:text-4xl font-serif tracking-[0.04em] text-ink mb-4">故事与洞见</h2>
             <div className="divider-ink mb-6" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -252,9 +252,9 @@ export default function HomePage() {
       {/* ===== GIFT CTA ===== */}
       <section className="px-6 py-28 md:py-40 bg-ink text-rice">
         <div className="max-w-2xl mx-auto text-center">
-          <p className="text-[10px] tracking-[0.4em] uppercase text-celadon/40 mb-4">Thoughtful Gifting</p>
+          <p className="text-[10px] tracking-[0.4em] uppercase text-celadon/40 mb-4">雅礼赠予</p>
           <h2 className="text-2xl md:text-4xl font-serif tracking-[0.04em] text-rice mb-6 leading-[1.4]">
-            A Gift That Speaks<br />of Culture & Soul
+            一份承载<br />文化之礼
           </h2>
           <div className="w-12 h-[0.5px] bg-celadon/30 mx-auto mb-8" />
           <p className="text-sm text-rice/40 leading-relaxed mb-10 max-w-md mx-auto">
@@ -270,11 +270,11 @@ export default function HomePage() {
       {/* ===== NEWSLETTER ===== */}
       <section className="px-6 py-24 md:py-32 bg-rice-paper">
         <div className="max-w-xl mx-auto text-center">
-          <p className="text-[10px] tracking-[0.4em] uppercase text-ink/30 mb-4">Join Our Circle</p>
-          <h2 className="text-2xl md:text-3xl font-serif tracking-[0.04em] text-ink mb-4">A Quiet Word, Now and Then</h2>
+          <p className="text-[10px] tracking-[0.4em] uppercase text-ink/30 mb-4">加入雅集</p>
+          <h2 className="text-2xl md:text-3xl font-serif tracking-[0.04em] text-ink mb-4">静谧之语</h2>
           <div className="divider-ink mb-6" />
           <p className="text-sm text-ink/40 leading-relaxed mb-8">
-            Stories of Eastern culture, new collection previews, and moments of serenity — delivered gently to your inbox.
+            东方文化故事、新品预览、静谧片刻——轻柔送达您的邮箱。
           </p>
           <NewsletterForm />
         </div>
