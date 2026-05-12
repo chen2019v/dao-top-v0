@@ -39,10 +39,10 @@ export default function HomePage() {
 
           {/* 主标题 DAO.top */}
           <h1 className="font-serif font-normal tracking-[0.06em] leading-[1.1] mb-8 animate-fade-in-up animate-delay-3"
-            style={{ color: "#f5f3ef", fontSize: "clamp(2.8rem, 7vw, 5.5rem)" }}>
+            style={{ color: "#1a1a1a", fontSize: "clamp(2.8rem, 7vw, 5.5rem)" }}>
             DAO
-            <span style={{ color: "rgba(123,167,160,0.45)" }}>.</span>
-            <span style={{ color: "rgba(123,167,160,0.35)" }}>top</span>
+            <span style={{ color: "rgba(123,167,160,0.6)" }}>.</span>
+            <span style={{ color: "rgba(123,167,160,0.4)" }}>top</span>
           </h1>
 
           {/* 英文副标题 */}
@@ -53,7 +53,7 @@ export default function HomePage() {
 
           {/* 中文副标题 */}
           <p className="tracking-[0.15em] mb-14 animate-fade-in-up animate-delay-4"
-            style={{ color: "rgba(245,243,239,0.22)", fontSize: "clamp(0.75rem, 1.2vw, 0.9rem)" }}>
+            style={{ color: "rgba(26,26,26,0.6)", fontSize: "clamp(0.75rem, 1.2vw, 0.9rem)" }}>
             道法自然 · 静以修身
           </p>
 
@@ -61,7 +61,7 @@ export default function HomePage() {
           <div className="mb-14 animate-fade-in-up animate-delay-4">
             <div className="mx-auto mb-6" style={{ width: "3rem", height: "1px", background: "rgba(123,167,160,0.2)" }} />
             <p className="font-serif italic leading-[2] tracking-[0.04em]"
-              style={{ color: "rgba(245,243,239,0.28)", fontSize: "clamp(0.8rem, 1.2vw, 0.95rem)" }}>
+              style={{ color: "rgba(26,26,26,0.5)", fontSize: "clamp(0.8rem, 1.2vw, 0.95rem)" }}>
               "In the silence between breaths,<br />the beauty of a thousand years whispers."
             </p>
             <div className="mx-auto mt-6" style={{ width: "3rem", height: "1px", background: "rgba(123,167,160,0.2)" }} />
@@ -72,14 +72,14 @@ export default function HomePage() {
             <a href={SHOP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
               进入店铺
             </a>
-            <Link href="/daos" className="btn-outline-light">
+            <Link href="/daos" className="btn-outline-dark">
               探索诸道
             </Link>
           </div>
 
           {/* 滚动提示 */}
           <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in-up animate-delay-6">
-            <span className="tracking-[0.4em] uppercase" style={{ color: "rgba(245,243,239,0.13)", fontSize: "9px" }}>Discover</span>
+            <span className="tracking-[0.4em] uppercase" style={{ color: "rgba(26,26,26,0.3)", fontSize: "9px" }}>Discover</span>
             <div className="w-px h-10 animate-[bounce_2.5s_ease-in-out_infinite]" style={{ background: "rgba(123,167,160,0.18)" }} />
           </div>
         </div>
